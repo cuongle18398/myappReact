@@ -1,4 +1,5 @@
 import logo from './logo.svg';
+import MyExam from './Example/MyExam';
 import './App.scss';
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
+        <MyExam />
         <a
           className="App-link"
           href="https://reactjs.org"
