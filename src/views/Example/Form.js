@@ -22,8 +22,20 @@ class Form extends React.Component {
         )
     }
     handleSummit = (event) => {
-        event.preventDefault()
-        alert(this.state)
+        event.preventDefault();
+        if (!this.state.title || !this.state.salary) {
+            alert('Missing Element!')
+            return
+        }
+        this.props.addNewJob({
+            id: Math.floor(Math.random() * 1001),
+            title: this.state.title,
+            salary: this.state.salary
+        })
+        this.setState({
+            title: '',
+            salary: ''
+        })
     }
 
     render() {

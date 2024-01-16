@@ -1,5 +1,7 @@
 import logo from './logo.svg';
-import MyExam from './Example/MyExam';
+import ListTodo from './Todo/ListTodo.js';
+import { Flip, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 import './App.scss';
 
 function App() {
@@ -7,11 +9,22 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Hello!
-        </p>
-        <MyExam />
+        <p>To do App</p>
+        <ListTodo />
       </header>
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        transition={Flip}
+      />
     </div>
   );
 }

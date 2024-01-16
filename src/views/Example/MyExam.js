@@ -14,18 +14,26 @@ class MyExam extends React.Component {
 
     addNewJob = (job) => {
         this.setState({
-            arrjobs: this.state.arrjobs.push(job)
+            arrjobs: [...this.state.arrjobs, job]
         })
     }
 
+    deleteJob = (job) => {
+        let currentJob = this.state.arrjobs
+        currentJob = currentJob.filter(item => item.id !== job.id);
+        this.setState({
+            arrjobs: currentJob
+        })
+    }
 
     render() {
 
         return (
             <>
-                <Form />
+                <Form addNewJob={this.addNewJob} />
                 <ChildComponent
                     arrjobs={this.state.arrjobs}
+                    deleteJob={this.deleteJob}
                 />
             </>
         )
