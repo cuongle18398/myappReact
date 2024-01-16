@@ -72,16 +72,16 @@ class ListTodo extends React.Component {
                                 return (
                                     <div className="todo-child">
                                         {isEmptyObj ?
-                                            <span> {index + 1} - {item.title} </span>
+                                            <span key={item.id}> {index + 1} - {item.title} </span>
                                             :
                                             <>
                                                 {edittodo.id === item.id ?
-                                                    <span>
+                                                    <span key={item.id}>
                                                         {index + 1} - <input value={edittodo.title}
                                                             onChange={(event) => this.handleOnChangeEdittodo(event)} />
                                                     </span>
                                                     :
-                                                    <span> {index + 1} - {item.title} </span>
+                                                    <span key={item.id}> {index + 1} - {item.title} </span>
                                                 }
                                             </>
                                         }
