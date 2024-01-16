@@ -4,6 +4,7 @@ import Home from './Example/Home.js';
 import MyExam from './Example/MyExam.js'
 import ListTodo from './Todo/ListTodo.js';
 import ListUser from './Users/ListUsers.js';
+import DetailUser from './Users/DetailUser.js';
 import { Flip, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 import './App.scss';
@@ -30,8 +31,11 @@ function App() {
             <Route path="/about">
               <MyExam />
             </Route>
-            <Route path="/user">
+            <Route path="/user" exact>
               <ListUser />
+            </Route>
+            <Route path="/user/:id">
+              <DetailUser />
             </Route>
           </Switch>
         </Router>
