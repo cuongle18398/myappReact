@@ -12,6 +12,15 @@ class Home extends React.Component {
     //     }, 1000);
     // }
 
+    handleDeleteUser = (user) => {
+        this.props.deleteUserRedux(user);
+    }
+
+
+    handleCreateUser = (user) => {
+        this.props.createUserRedux(user);
+    }
+
     render() {
 
         let listUsers = this.props.dataRedux;
@@ -32,13 +41,16 @@ class Home extends React.Component {
                                     <div key={item.id}>
                                         {index + 1} - {item.name}
                                         <span>
-                                            <button type="button"> Edit </button>
+                                            <button type="button" onClick={() => this.handleDeleteUser(item)}> Delete </button>
                                         </span>
                                     </div>
                                 </>
                             )
                         })
                     }
+                </div>
+                <div>
+                    <button onClick={() => this.handleCreateUser()}>Add new</button>
                 </div>
             </>
         )
@@ -51,4 +63,16 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(Color(Home));
+const mapDispatchToProps = (dispatch) => {
+    return {
+        deleteUserRedux: (userDelete) => dispatch({
+            type: 'DELETE_USER',
+            payload: userDelete
+        }),
+        createUserRedux: () => dispatch({
+            type: 'CREATE_USER'
+        })
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Color(Home));
